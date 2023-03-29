@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+import { ApicrudService } from '../apicrud.service';
 @Component({
   selector: 'app-dependencies',
   templateUrl: './dependencies.component.html',
@@ -10,8 +11,10 @@ export class DependenciesComponent {
 
   userName; 
    formdata;
-   constructor(private http: HttpClient) { }
+   constructor(private http: HttpClient,private apicrudService: ApicrudService) { }
    ngOnInit() { 
+
+    console.log(this.apicrudService.showTasks);
 
         // Make a GET request with some query parameters
     const params = new HttpParams().set('param1', 'value1').set('param2', 'value2');
