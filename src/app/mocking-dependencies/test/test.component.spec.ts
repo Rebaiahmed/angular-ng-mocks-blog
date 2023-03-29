@@ -9,7 +9,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AngularSplitModule } from 'angular-split';
-import { MockComponent, MockComponents, MockModule, MockPipes } from 'ng-mocks';
+import { MockComponent, MockComponents, MockModule, MockPipes, MockService } from 'ng-mocks';
 import { ApicrudService } from 'src/app/apicrud.service';
 import { MultiplierPipe } from 'src/app/multiplier.pipe';
 import { ReversePipe } from 'src/app/reverse.pipe';
@@ -41,7 +41,7 @@ fdescribe('TestComponent', () => {
         MockComponents(ChildComponent,ChildBComponent),],
       providers: [
         MockPipes(MultiplierPipe,SquarePipe,ReversePipe),
-        ApicrudService
+        MockService(ApicrudService)
       ]
     })
     .compileComponents();
